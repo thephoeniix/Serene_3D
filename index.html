@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f1e9">
-  <meta name="description" content="Herramientas de Serene 3D: convierte rutas en piezas, cotiza impresiones y diseña promocionales personalizados.">
+  <meta name="description" content="Herramientas de Serene 3D: convierte rutas en piezas, cotiza impresiones y diseña promocionales y exhibidores personalizados.">
   <title>Serene 3D — herramientas de diseño</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,7 +74,7 @@
     }
     h1 span { color: var(--green); }
     .intro p { max-width: 550px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.75; }
-    .tools { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .tools { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
     .tool-card {
       position: relative;
       display: flex;
@@ -117,6 +117,9 @@
     .footer-note { color: var(--muted); font-size: 9px; }
     .status { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 11px; }
     .status::before { width: 7px; height: 7px; border-radius: 50%; background: #78a36c; content: ""; }
+    @media (max-width: 900px) {
+      .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
     @media (max-width: 760px) {
       .shell { width: min(100% - 32px, 520px); }
       .topbar { min-height: 68px; }
@@ -146,7 +149,7 @@
       <section class="intro" aria-labelledby="page-title">
         <div class="eyebrow">Tu espacio de herramientas</div>
         <h1 id="page-title">Ideas que toman<br><span>forma.</span></h1>
-        <p>Elige una herramienta para empezar. Diseña una pieza desde tu ruta, calcula el costo de impresión o personaliza un promocional en 3D.</p>
+        <p>Elige una herramienta para empezar. Diseña una pieza desde tu ruta, calcula el costo de impresión o personaliza promocionales y exhibidores en 3D.</p>
       </section>
 
       <nav class="tools" aria-label="Herramientas de Serene 3D">
@@ -167,6 +170,12 @@
           <h2>Promocionales</h2>
           <p>Visualiza y personaliza promocionales con modelos interactivos en 3D.</p>
           <span class="card-link"><span>Diseñar promocionales</span><span class="arrow" aria-hidden="true">→</span></span>
+        </a>
+        <a class="tool-card" href="exhibidores-3d.html">
+          <span class="card-top"><span class="card-index">Herramienta 04</span><span class="card-icon" aria-hidden="true">▤</span></span>
+          <h2>Exhibidores</h2>
+          <p>Arma y personaliza exhibidores por capas con una vista interactiva en 3D.</p>
+          <span class="card-link"><span>Diseñar exhibidores</span><span class="arrow" aria-hidden="true">→</span></span>
         </a>
       </nav>
     </main>
