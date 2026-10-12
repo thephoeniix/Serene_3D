@@ -85,7 +85,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px soli
 .colorrow .lab b{font-weight:400}
 .side .seg{margin-bottom:2px}
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Anton&family=Baloo+2:wght@800&family=Bebas+Neue&family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Bungee&family=Fredoka:wght@700&family=Kaushan+Script&family=Leckerli+One&family=Lobster&family=Luckiest+Guy&family=Pacifico&family=Permanent+Marker&family=Righteous&family=Satisfy&display=swap" rel="stylesheet"><style>.fontgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:4px 0 6px}.fontgrid button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:14px;padding:10px 8px;font-size:17px;line-height:1.15;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:44px}.fontgrid button[aria-pressed=true]{background:#eef6e3;border-color:#b9d39a}.namefield{display:block;font-size:12px;font-weight:600;margin:4px 0 10px}.namefield input{display:block;width:100%;box-sizing:border-box;margin-top:6px;padding:10px 12px;border:1px solid #d3dcec;border-radius:12px;font-size:16px;background:#fff;color:var(--ink)}</style><style>
 :root{--bg:#f1f3f7;--panel:#fff;--surface:#fff;--ink:#131515;--fg:#131515;--muted:#626b7c;--line:#e2e6ee;--accent:#4a67a0;--accent-ink:#fff;--accent-soft:#e8edf7;--chip:#eef6e3;--field:#f5f7fa;--view:#e5eaf4;--stage:#19243e;--stage-dot:rgba(216,237,110,.08);--cond:'Figtree',system-ui,sans-serif;--body:'Figtree',system-ui,sans-serif;--f-display:'Figtree',system-ui,sans-serif;--f-body:'Figtree',system-ui,sans-serif;color-scheme:light}
 html,body{margin:0;min-height:100%;font-family:'Figtree',system-ui,sans-serif}body{padding:18px;background:var(--bg);font-size:14px}
 .studio-nav{height:64px;max-width:1560px;margin:0 auto 16px;padding:8px 20px;background:#fff;border:1px solid #ffffff;border-radius:40px;display:flex;align-items:center;justify-content:space-between;gap:16px}
@@ -175,6 +175,44 @@ body,p,label,input,select,textarea,button,.lede,.sub,.studio-links{font-family:'
       <p class="hint" id="productHint"></p>
     </section>
 
+    <section class="group" id="nameSection" hidden>
+      <h2>Nombre</h2>
+      <label class="namefield">Nombre<input type="text" id="nameText" maxlength="24" autocomplete="off"></label>
+      <div id="nameFontSlot"></div>
+      <h3>Forma</h3>
+      <div class="seg" role="group" aria-label="Forma del llavero de nombre" id="nameLayoutSeg">
+        <button type="button" data-v="silhouette">Silueta</button>
+        <button type="button" data-v="plate">Placa</button>
+      </div>
+      <div id="nameRanges"></div>
+      <div id="nameIconBox">
+        <h3>Ícono del círculo</h3>
+        <div class="seg" role="group" aria-label="Ícono del círculo" id="nameIconSeg">
+          <button type="button" data-v="none">Ninguno</button>
+          <button type="button" data-v="nfc">NFC</button>
+          <button type="button" data-v="wifi">WiFi</button>
+          <button type="button" data-v="star">Estrella</button>
+          <button type="button" data-v="heart">Corazón</button>
+          <button type="button" data-v="initial">Inicial</button>
+          <button type="button" data-v="image">Imagen</button>
+        </div>
+        <div id="nameIconImg" hidden>
+          <label class="file">Sube tu ícono (PNG, SVG o JPG)<input type="file" id="nameIconFile" accept="image/png,image/svg+xml,image/jpeg,image/webp"></label>
+          <label class="check"><input type="checkbox" id="iconInv"> Invertir (usar las partes claras)</label>
+        </div>
+        <div id="nameIconRanges"></div>
+      </div>
+      <p class="hint" id="nameIconOff" hidden>El círculo aparece cuando activas el hueco para chip NFC en Forma y medidas.</p>
+      <h3>Reverso</h3>
+      <div class="seg" role="group" aria-label="Reverso" id="nameBackSeg">
+        <button type="button" data-v="none">Liso</button>
+        <button type="button" data-v="icon">Ícono</button>
+        <button type="button" data-v="name">Nombre</button>
+        <button type="button" data-v="both">Nombre + ícono</button>
+      </div>
+      <p class="hint">Las letras van en el color de los logos y la base en el color del cuerpo. Las tipografías gruesas (Pacifico, Lobster, Baloo, Luckiest Guy) son las que mejor se imprimen.</p>
+    </section>
+
     <section class="group">
       <h2>Forma y medidas</h2>
       <div id="shapeBox"></div>
@@ -231,6 +269,7 @@ body,p,label,input,select,textarea,button,.lede,.sub,.studio-links{font-family:'
         <label class="check"><input type="checkbox" id="same"> Usar el mismo logo en el reverso</label>
         <div class="side" id="sideBack"><h3 id="backLabel">Reverso</h3><div class="sidebody"></div></div>
       </div>
+      <div id="logoFontSlot"><div id="fontBox"><h3>Tipografía</h3><div class="fontgrid" id="fontGrid" role="group" aria-label="Tipografía"></div><p class="hint">Se usa en el nombre y en todos los logos de texto.</p></div></div>
       <div id="logoRanges"></div>
       <p class="hint" id="logoWHint"></p>
       <h3>Acabado del logo</h3>
@@ -394,6 +433,16 @@ function makePromoGeometry(THREE) {
 
   function computeDims(S) {
     const t = S.thick, kind = S.shape;
+    if (S._poly) {
+      // free-form outline traced from a raster (extra shapes and name keychains)
+      const Q = S._poly, outer = cw(Q.outer), inner = cw(Q.inner), bb = bbox(outer);
+      const magnet = S.magnet ? { d: S.magD + 0.3, h: S.magH + 0.2 } : null;
+      const chip = S.chip ? { d: (S.chipD || 25) + 0.5, h: Math.ceil(((S.chipT || 0.6) + 0.2) / 0.2 - 1e-6) * 0.2 } : null;
+      const need = chip ? chip.h + 1.2 : 0.8;
+      const h = Math.max(0.2, Math.min(S.relief, (t - need) / 2));
+      const tooThin = !!chip && t - 2 * h < need - 1e-6;
+      return { kind: 'poly', t, w: Q.rim, R: 0, W: bb.w, H: bb.h, rc: 0, outer, inner, innerBox: bbox(inner), center: Q.center, h, tab: null, chip, tooThin, magnet, stand: false, polyHoles: Q.holes || [], polyRim: Q.rim > 0 };
+    }
     // keyring tab first: with fitTab the requested width/height include it
     let tab = null;
     if (S.tab && kind !== 'stand') {
@@ -503,6 +552,13 @@ function makePromoGeometry(THREE) {
   }
 
   function rimShape(d) {
+    if (d.kind === 'poly') {
+      if (!d.polyRim) return null;
+      const s = new THREE.Shape(dedupe(d.outer));
+      s.holes.push(new THREE.Path(dedupe(d.inner)));
+      d.polyHoles.forEach(h => s.holes.push(new THREE.Path(dedupe(h))));
+      return s;
+    }
     if (d.w <= 0 && !d.tab) return null;
     let outer = d.outer, hole = null;
     if (d.tab) {
@@ -529,7 +585,54 @@ function makePromoGeometry(THREE) {
     g.translate(0, 0, z0);
     return g;
   }
-  const innerShape = d => new THREE.Shape(dedupe(d.inner));
+  const innerShape = d => {
+    const s = new THREE.Shape(dedupe(d.inner));
+    if (d.kind === 'poly' && !d.polyRim) d.polyHoles.forEach(h => s.holes.push(new THREE.Path(dedupe(h))));
+    return s;
+  };
+
+  // ---------- raster mask -> smooth outline polygons (in mm)
+  function rdp(pts, eps) {
+    const n = pts.length;
+    if (n < 4) return pts;
+    const keep = new Uint8Array(n); keep[0] = keep[n - 1] = 1;
+    const stack = [[0, n - 1]];
+    while (stack.length) {
+      const [a, z] = stack.pop();
+      const ax = pts[a][0], ay = pts[a][1], dx = pts[z][0] - ax, dy = pts[z][1] - ay, L = Math.hypot(dx, dy) || 1e-9;
+      let best = 0, bi = -1;
+      for (let i = a + 1; i < z; i++) {
+        const dd = Math.abs((pts[i][0] - ax) * dy - (pts[i][1] - ay) * dx) / L;
+        if (dd > best) { best = dd; bi = i; }
+      }
+      if (bi > 0 && best > eps) { keep[bi] = 1; stack.push([a, bi], [bi, z]); }
+    }
+    return pts.filter((_, i) => keep[i]);
+  }
+  function simplifyClosed(pts, eps) {
+    let far = 0, fd = -1;
+    pts.forEach((p, i) => { const dd = (p[0] - pts[0][0]) ** 2 + (p[1] - pts[0][1]) ** 2; if (dd > fd) { fd = dd; far = i; } });
+    const A = rdp(pts.slice(0, far + 1), eps), B = rdp(pts.slice(far).concat([pts[0]]), eps);
+    return A.concat(B.slice(1, -1));
+  }
+  function maskLoops(raw, Nw, Nh, cell, x0, y0, eps) {
+    const m = new Uint8Array(raw);
+    for (let it = 0; it < 6; it++) {
+      let changed = false;
+      for (let gy = 1; gy < Nh; gy++) for (let gx = 1; gx < Nw; gx++) {
+        const A = (gy - 1) * Nw + gx - 1, B = A + 1, C = gy * Nw + gx - 1, E = C + 1;
+        if (m[A] === m[E] && m[B] === m[C] && m[A] !== m[B]) { m[A] = m[B] = m[C] = m[E] = 1; changed = true; }
+      }
+      if (!changed) break;
+    }
+    return traceLoops(m, Nw, Nh).map(lp => {
+      // tiny deterministic jitter keeps the cap triangulation away from exactly collinear vertices
+      const pts = simplifyClosed(lp.map(([gx, gy]) => [x0 + gx * cell, y0 - gy * cell]), eps)
+        .map(([x, y], i) => [x + ((i * 7919) % 13 - 6) * 0.0003, y + ((i * 104729) % 11 - 5) * 0.0003]);
+      const sa = signedArea(pts);
+      return { pts, signed: sa, area: Math.abs(sa) };
+    }).filter(l => l.pts.length >= 3).sort((a, z) => z.area - a.area);
+  }
 
   // ---------- logo masks -> shapes
   // grid: {raw, Nw, Nh, cell, x0, y0} in view coordinates (back face is mirrored: model x = -view x)
@@ -639,7 +742,7 @@ function makePromoGeometry(THREE) {
     const B = faces.back ? faceShapes(faces.back, d, true) : null;
     // solidCore: only the surface layers carry the body colour; the hidden middle is printed in the rim colour,
     // so colour changes happen only near the two faces
-    const solid = !!S.solidCore && d.kind !== 'stand';
+    const solid = !!S.solidCore && d.kind !== 'stand' && (d.kind === 'poly' ? d.polyRim : d.w > 0);
     let body = [], logoFront = null, logoBack = null, core = null, off = 0;
     const hF = (F || solid) ? d.h : 0, hB = (B || solid) ? d.h : 0;
     const zF = raised && !solid ? zt : zt - hF;
@@ -690,7 +793,7 @@ function makePromoGeometry(THREE) {
     return buf;
   }
 
-  return { computeDims, buildParts, stlBinary };
+  return { computeDims, buildParts, stlBinary, maskLoops };
 }
 
 
@@ -709,13 +812,21 @@ function makePromoGeometry(THREE) {
   const R = (key, label, min, max, step, only) => ({ key, label, min, max, step, only });
   const COMMON = {
     tab: false, tabPos: 'top', tabShape: 'round', holeD: 4.4, tabWall: 2.2, slotLen: 10, chip: false, chipD: 22.5, chipT: 1, useWH: false, fitTab: false, magnet: false, magD: 10, magH: 2,
-    mount: 'none', ruler: false, solidCore: true, bold: 0, relief: 0.6, style: 'flush', raise: 1, same: false, offX: 0, offY: 0, angle: 68, standH: 90
+    mount: 'none', ruler: false, solidCore: true, font: 'Bricolage Grotesque', nameText: 'Sofía', textH: 12, margin: 2.5, nameLayout: 'silhouette', nameBack: 'both', nameIcon: true, nameIconKind: 'nfc', iconScale: 100, iconThr: 200, iconInv: false, bold: 0, relief: 0.6, style: 'flush', raise: 1, same: false, offX: 0, offY: 0, angle: 68, standH: 90
   };
   const PRODUCTS = [
-    { id: 'llavero', name: 'Llavero', note: 'Llavero NFC con argolla.', shapes: ['circle', 'square'], tab: true, chip: true,
+    { id: 'llavero', name: 'Llavero', note: 'Llavero NFC con argolla. Elige la forma que quieras.', shapes: ['circle', 'square', 'heart', 'star', 'hex', 'flower', 'shield', 'bone', 'drop', 'cloud'], tab: true, chip: true,
       ranges: [R('W', 'Ancho (X)', 20, 70, 0.5), R('H', 'Alto (Y)', 20, 80, 0.5), R('thick', 'Grosor', 3.5, 7, 0.5), R('rim', 'Borde', 1, 6, 0.5), R('corner', 'Esquinas', 0, 12, 0.5, 'square')],
       d: { shape: 'circle', useWH: true, fitTab: true, W: 30, H: 35, thick: 4, rim: 2, corner: 5, tab: true, holeD: 4, tabWall: 2, chip: true, logoW: 20,
         front: side({ mode: 'icon' }), back: side({ mode: 'text', text: 'Acércalo\na tu cel' }) } },
+    { id: 'llavero-soporte', name: 'Llavero soporte de cel', note: 'Soporte para el celular que se guarda en la argolla. Elige el modelo: en V con la argolla de bisagra, en T o de 3 piezas.', shapes: ['keystand'], keystand: true,
+      ranges: [R('thick', 'Grosor de las piezas', 2.4, 4, 0.2), R('standW', 'Ancho del soporte', 45, 80, 1), R('phoneT', 'Grosor del cel (con funda)', 7, 16, 0.5), R('angle', 'Inclinación', 60, 80, 1)],
+      d: { shape: 'keystand', thick: 3, standW: 60, phoneT: 11, angle: 70, holeD: 4, tabWall: 2, logoW: 16, relief: 0.4, same: true, solidCore: false, standView: 'assembled', standType: 'v',
+        front: side({ mode: 'text', text: 'Tu\nmarca' }), back: side({}) } },
+    { id: 'nombre', name: 'Llavero de nombre', note: 'Tu nombre en la tipografía que elijas. El chip NFC va en el círculo de la orilla.', shapes: ['name'], tab: true, chip: true, nameProd: true,
+      ranges: [R('thick', 'Grosor', 3, 7, 0.5), R('rim', 'Borde', 0, 3, 0.5)],
+      d: { shape: 'name', thick: 4, rim: 0, tab: true, tabPos: 'side', holeD: 4, tabWall: 2, chip: true, chipD: 22.5, chipT: 1, style: 'raised', raise: 1, relief: 0.6, font: 'Pacifico', logoW: 20, solidCore: false,
+        front: side({}), back: side({}) } },
     { id: 'tarjeta', name: 'Tarjeta NFC', note: 'Tamaño de tarjeta de crédito. Al acercarla abre tu enlace; el QR del reverso es el respaldo.', shapes: ['rect'], tab: true, chip: true,
       ranges: [R('W', 'Ancho', 60, 100, 0.5), R('H', 'Alto', 40, 70, 0.5), R('thick', 'Grosor', 2.4, 4, 0.2), R('rim', 'Borde', 0, 4, 0.5), R('corner', 'Esquinas', 0, 10, 0.5)],
       d: { shape: 'rect', W: 85.6, H: 54, thick: 3.2, rim: 1.5, corner: 4, chip: true, relief: 0.4, tabPos: 'side', tabShape: 'slot', holeD: 3, tabWall: 2, slotLen: 10, logoW: 70,
@@ -734,7 +845,7 @@ function makePromoGeometry(THREE) {
     { id: 'soporte', name: 'Soporte de celular', note: 'Se imprime acostado; los logos van en los dos costados.', shapes: ['stand'], chip: true,
       ranges: [R('thick', 'Ancho', 50, 90, 1), R('angle', 'Inclinación', 58, 80, 1), R('standH', 'Respaldo', 70, 120, 1)],
       d: { shape: 'stand', thick: 70, logoW: 34, same: true, offX: 6, offY: -2, front: side({ mode: 'text' }), back: side({ mode: 'text' }) } },
-    { id: 'iman', name: 'Imán / pin', note: 'Para refri, gafete o tablero metálico.', shapes: ['circle', 'square'], magnet: true, noBack: true,
+    { id: 'iman', name: 'Imán / pin', note: 'Para refri, gafete o tablero metálico.', shapes: ['circle', 'square', 'heart', 'star', 'hex', 'flower', 'shield', 'bone', 'drop', 'cloud'], magnet: true, noBack: true,
       ranges: [R('size', 'Tamaño', 20, 60, 1), R('thick', 'Grosor', 3, 6, 0.5), R('rim', 'Borde', 0, 5, 0.5), R('corner', 'Esquinas', 0, 10, 0.5, 'square')],
       d: { shape: 'circle', size: 35, thick: 4, rim: 2, corner: 5, magnet: true, logoW: 25, front: side({ mode: 'text', text: 'Tu\nmarca' }), back: side({}) } },
     { id: 'separador', name: 'Separador', note: 'Ponle una borla o listón en la argolla.', shapes: ['rect'], tab: true, chip: true, ruler: true,
@@ -782,6 +893,7 @@ function makePromoGeometry(THREE) {
     Pt.body.forEach(g => add(g, mat.body));
     add(Pt.rim, mat.rim); add(Pt.core, mat.rim); add(Pt.logoFront, mat.logo); add(Pt.logoBack, mat.logo);
     if (Pt.stand) add(Pt.stand.view, mat.rim);
+    (Pt.extra || []).forEach(e => pivot.add(new THREE.Mesh(e.geo, e.mat)));
     // measure in the model's own coordinates (the rig is rotated for viewing)
     const pb = new THREE.Box3(), bb = new THREE.Box3();
     pivot.children.forEach(m => {
@@ -841,6 +953,16 @@ function makePromoGeometry(THREE) {
   const hi = document.createElement('canvas'), hctx = hi.getContext('2d', { willReadFrequently: true });
   const lo = document.createElement('canvas'), lctx = lo.getContext('2d', { willReadFrequently: true });
   const FAM = '"Bricolage Grotesque", "Arial Black", sans-serif';
+  const FONTS = [['Pacifico', 400], ['Lobster', 400], ['Leckerli One', 400], ['Kaushan Script', 400], ['Satisfy', 400], ['Fredoka', 700], ['Baloo 2', 800],
+    ['Bricolage Grotesque', 800], ['Bebas Neue', 400], ['Anton', 400], ['Righteous', 400], ['Bungee', 400], ['Permanent Marker', 400], ['Luckiest Guy', 400]];
+  const fontW = f => (FONTS.find(x => x[0] === f) || [0, 800])[1];
+  const fontCSS = (f, px) => `${fontW(f)} ${px}px "${f}", "Arial Black", sans-serif`;
+  const fontReq = new Set();
+  function ensureFont(f) {
+    if (!document.fonts || fontReq.has(f)) return;
+    fontReq.add(f);
+    document.fonts.load(fontCSS(f, 60), 'AaÑñáéíóú').then(() => rebuild()).catch(() => {});
+  }
 
   function drawIcon(ctx, name, cx, cy, s) {
     ctx.fillStyle = '#000'; ctx.strokeStyle = '#000'; ctx.lineCap = 'round';
@@ -849,6 +971,14 @@ function makePromoGeometry(THREE) {
       ctx.lineWidth = s * 0.09;
       ctx.beginPath(); ctx.arc(cx, by, s * 0.07, 0, Math.PI * 2); ctx.fill();
       [0.24, 0.42, 0.6].forEach(r => { ctx.beginPath(); ctx.arc(cx, by, s * r, -Math.PI * 0.75, -Math.PI * 0.25); ctx.stroke(); });
+    } else if (name === 'heart') {
+      ctx.beginPath();
+      for (let i = 0; i <= 120; i++) {
+        const t = i / 120 * Math.PI * 2, q = Math.sin(t);
+        const x = 16 * q * q * q, y = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
+        ctx[i ? 'lineTo' : 'moveTo'](cx + x / 34 * s, cy - (y + 2.5) / 34 * s);
+      }
+      ctx.closePath(); ctx.fill();
     } else if (name === 'star') {
       ctx.beginPath();
       for (let i = 0; i < 10; i++) {
@@ -867,10 +997,10 @@ function makePromoGeometry(THREE) {
     const lines = text.split('\n').map(s => s.trim()).filter(Boolean).slice(0, 5);
     if (!lines.length) return false;
     ctx.fillStyle = '#000';
-    ctx.font = `800 100px ${FAM}`;
+    ctx.font = fontCSS(S.font, 100);
     const wmax = Math.max(...lines.map(l => ctx.measureText(l).width));
     const fs = Math.min(100 * w * 0.97 / wmax, h * 0.95 / (lines.length * 1.05));
-    ctx.font = `800 ${fs}px ${FAM}`;
+    ctx.font = fontCSS(S.font, fs);
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     const lh = fs * 1.05, y0 = y + h / 2 - lh * (lines.length - 1) / 2;
     lines.forEach((l, i) => ctx.fillText(l, x + w / 2, y0 + i * lh));
@@ -995,15 +1125,386 @@ function makePromoGeometry(THREE) {
     return any ? { raw, Nw, Nh, cell, x0, y0 } : null;
   }
 
+
+  // ---------- silhouettes traced from a raster: extra keychain shapes and name keychains
+  const SHAPE_LABELS = { heart: 'Corazón', star: 'Estrella', hex: 'Hexágono', flower: 'Flor', shield: 'Escudo', bone: 'Hueso', drop: 'Gota', cloud: 'Nube' };
+  const RASTER = new Set(Object.keys(SHAPE_LABELS));
+  let polyData = null, nameGrids = null;
+
+  function unitShape(kind) {
+    // polygons (y up) whose union is the shape; normalised to the box [-1, 1]
+    const P = [];
+    const C = (cx, cy, r) => { const o = []; for (let i = 0; i < 120; i++) { const a = i / 120 * Math.PI * 2; o.push([cx + r * Math.cos(a), cy + r * Math.sin(a)]); } return o; };
+    if (kind === 'heart') {
+      const o = [];
+      for (let i = 0; i < 260; i++) { const t = i / 260 * Math.PI * 2, s = Math.sin(t); o.push([16 * s * s * s, 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t)]); }
+      P.push(o);
+    } else if (kind === 'star') {
+      const o = [];
+      for (let i = 0; i < 10; i++) { const r = i % 2 ? 0.47 : 1, a = Math.PI / 2 + i * Math.PI / 5; o.push([r * Math.cos(a), r * Math.sin(a)]); }
+      P.push(o);
+    } else if (kind === 'hex') {
+      const o = [];
+      for (let i = 0; i < 6; i++) { const a = Math.PI / 2 + i * Math.PI / 3; o.push([Math.cos(a), Math.sin(a)]); }
+      P.push(o);
+    } else if (kind === 'flower') {
+      const o = [];
+      for (let i = 0; i < 400; i++) { const a = i / 400 * Math.PI * 2, r = 0.7 + 0.3 * Math.cos(5 * (a - Math.PI / 2)); o.push([r * Math.cos(a), r * Math.sin(a)]); }
+      P.push(o);
+    } else if (kind === 'shield') {
+      const Rc = [];
+      for (let i = 0; i <= 30; i++) { const s = i / 30, a = (1 - s) * (1 - s), m = 2 * s * (1 - s), c = s * s; Rc.push([a + m, a * 0.3 - m * 0.55 - c]); }
+      P.push([[-1, 1], [1, 1]].concat(Rc, Rc.slice(0, -1).reverse().map(([x, y]) => [-x, y])));
+    } else if (kind === 'bone') {
+      P.push(C(-0.72, 0.4, 0.36), C(-0.72, -0.4, 0.36), C(0.72, 0.4, 0.36), C(0.72, -0.4, 0.36), [[-0.75, -0.38], [0.75, -0.38], [0.75, 0.38], [-0.75, 0.38]]);
+    } else if (kind === 'drop') {
+      const cy = -0.35, r = 0.65, dd = 1 - cy, be = Math.acos(r / dd);
+      const T = s => [r * Math.cos(Math.PI / 2 + s * be), cy + r * Math.sin(Math.PI / 2 + s * be)];
+      P.push(C(0, cy, r), [[0, 1], T(1), [0, cy], T(-1)]);
+    } else if (kind === 'cloud') {
+      P.push(C(-0.55, -0.18, 0.42), C(0.05, 0.15, 0.6), C(0.6, -0.15, 0.45), [[-0.55, -0.6], [0.6, -0.6], [0.6, -0.15], [-0.55, -0.15]]);
+    }
+    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+    P.forEach(o => o.forEach(([x, y]) => { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }));
+    return P.map(o => o.map(([x, y]) => [(x - x0) / (x1 - x0) * 2 - 1, (y - y0) / (y1 - y0) * 2 - 1]));
+  }
+
+  function newGrid(xmin, xmax, ymin, ymax, cell) {
+    const Nw = Math.ceil((xmax - xmin) / cell), Nh = Math.ceil((ymax - ymin) / cell);
+    return { Nw, Nh, cell, x0: xmin, y0: ymax, px: x => (x - xmin) / cell, py: y => (ymax - y) / cell };
+  }
+  const rcv = document.createElement('canvas'), rctx = rcv.getContext('2d', { willReadFrequently: true });
+  function canvasFor(g) {
+    rcv.width = g.Nw; rcv.height = g.Nh;
+    rctx.setTransform(1, 0, 0, 1, 0, 0); rctx.clearRect(0, 0, g.Nw, g.Nh);
+    rctx.fillStyle = '#000'; rctx.strokeStyle = '#000';
+    return rctx;
+  }
+  function readMask(g) {
+    const p = rctx.getImageData(0, 0, g.Nw, g.Nh).data, m = new Uint8Array(g.Nw * g.Nh);
+    for (let i = 0; i < m.length; i++) m[i] = p[i * 4 + 3] >= 128 ? 1 : 0;
+    return m;
+  }
+  function fillPolys(g, polys) {
+    const c = canvasFor(g);
+    polys.forEach(o => { c.beginPath(); o.forEach(([x, y], i) => i ? c.lineTo(g.px(x), g.py(y)) : c.moveTo(g.px(x), g.py(y))); c.closePath(); c.fill(); });
+    return readMask(g);
+  }
+  // exact Euclidean distance (in cells) from every pixel to the nearest pixel where feat = 1
+  function edt(feat, W, H) {
+    const INF = 1e20, n = Math.max(W, H), g = new Float64Array(W * H);
+    for (let i = 0; i < g.length; i++) g[i] = feat[i] ? 0 : INF;
+    const f = new Float64Array(n), d = new Float64Array(n), v = new Int32Array(n), z = new Float64Array(n + 1);
+    const pass = len => {
+      let k = 0; v[0] = 0; z[0] = -INF; z[1] = INF;
+      for (let q = 1; q < len; q++) {
+        let s = ((f[q] + q * q) - (f[v[k]] + v[k] * v[k])) / (2 * q - 2 * v[k]);
+        while (s <= z[k]) { k--; s = ((f[q] + q * q) - (f[v[k]] + v[k] * v[k])) / (2 * q - 2 * v[k]); }
+        k++; v[k] = q; z[k] = s; z[k + 1] = INF;
+      }
+      k = 0;
+      for (let q = 0; q < len; q++) { while (z[k + 1] < q) k++; d[q] = (q - v[k]) * (q - v[k]) + f[v[k]]; }
+    };
+    for (let x = 0; x < W; x++) { for (let y = 0; y < H; y++) f[y] = g[y * W + x]; pass(H); for (let y = 0; y < H; y++) g[y * W + x] = d[y]; }
+    for (let y = 0; y < H; y++) { for (let x = 0; x < W; x++) f[x] = g[y * W + x]; pass(W); for (let x = 0; x < W; x++) g[y * W + x] = d[x]; }
+    for (let i = 0; i < g.length; i++) g[i] = Math.sqrt(g[i]);
+    return g;
+  }
+  const notM = M => { const o = new Uint8Array(M.length); for (let i = 0; i < M.length; i++) o[i] = M[i] ? 0 : 1; return o; };
+  function dilateM(M, r, g) { const D = edt(M, g.Nw, g.Nh), o = new Uint8Array(M.length), k = r / g.cell; for (let i = 0; i < o.length; i++) o[i] = D[i] <= k ? 1 : 0; return o; }
+  function erodeM(M, r, g) { const D = edt(notM(M), g.Nw, g.Nh), o = new Uint8Array(M.length), k = r / g.cell; for (let i = 0; i < o.length; i++) o[i] = D[i] > k ? 1 : 0; return o; }
+  function fillHoles(M, g) {
+    const W = g.Nw, H = g.Nh, ext = new Uint8Array(M.length), st = [];
+    const push = i => { if (!M[i] && !ext[i]) { ext[i] = 1; st.push(i); } };
+    for (let x = 0; x < W; x++) { push(x); push((H - 1) * W + x); }
+    for (let y = 0; y < H; y++) { push(y * W); push(y * W + W - 1); }
+    while (st.length) {
+      const i = st.pop(), x = i % W, y = (i / W) | 0;
+      if (x > 0) push(i - 1); if (x < W - 1) push(i + 1); if (y > 0) push(i - W); if (y < H - 1) push(i + W);
+    }
+    const o = new Uint8Array(M.length);
+    for (let i = 0; i < o.length; i++) o[i] = ext[i] ? 0 : 1;
+    return o;
+  }
+  function eachPixel(g, fn) {
+    for (let j = 0; j < g.Nh; j++) { const y = g.y0 - (j + 0.5) * g.cell; for (let i = 0; i < g.Nw; i++) fn(j * g.Nw + i, g.x0 + (i + 0.5) * g.cell, y); }
+  }
+  function tabSpec() {
+    if (!S.tab) return null;
+    const rh = S.holeD / 2, wall = S.tabWall, rt = rh + wall;
+    return { rh, wall, rt, ext: wall + rh + rt, Ls: S.tabShape === 'slot' ? Math.min(S.slotLen, 14) : 0 };
+  }
+  // keyring tab: walks from P0 along u until it leaves the plate, then adds the neck, the ring and its hole
+  function addTab(g, M, P0, u, T) {
+    let b = 0;
+    for (let t = 0; t < 500; t += g.cell * 0.5) {
+      const i = Math.floor(g.px(P0[0] + u[0] * t)), j = Math.floor(g.py(P0[1] + u[1] * t));
+      if (i < 0 || j < 0 || i >= g.Nw || j >= g.Nh || !M[j * g.Nw + i]) break;
+      b = t;
+    }
+    const v = [u[1], -u[0]], c = b + T.wall + T.rh, hw = T.Ls / 2 + T.rt, n0 = Math.max(0, b - 3), out = new Uint8Array(M);
+    eachPixel(g, (k, x, y) => {
+      const rx = x - P0[0], ry = y - P0[1], s = rx * u[0] + ry * u[1], w = rx * v[0] + ry * v[1];
+      const ds = s - c, dw = Math.max(0, Math.abs(w) - T.Ls / 2), r2 = ds * ds + dw * dw;
+      if ((s >= n0 && s <= c && Math.abs(w) <= hw) || r2 <= T.rt * T.rt) out[k] = 1;
+      if (r2 <= T.rh * T.rh) out[k] = 0;
+    });
+    return out;
+  }
+  function finishPoly(g, plate, P0, u, rim) {
+    const T = tabSpec();
+    const out = T ? addTab(g, plate, P0, u, T) : plate;
+    const rimE = rim >= 0.4 ? rim : 0;
+    const inner = rimE ? erodeM(plate, rimE, g) : plate;
+    const Din = edt(notM(inner), g.Nw, g.Nh);
+    let bi = 0;
+    for (let i = 1; i < Din.length; i++) if (Din[i] > Din[bi]) bi = i;
+    const center = [g.x0 + (bi % g.Nw + 0.5) * g.cell, g.y0 - (((bi / g.Nw) | 0) + 0.5) * g.cell];
+    const eps = g.cell * 0.8;
+    const LO = G.maskLoops(out, g.Nw, g.Nh, g.cell, g.x0, g.y0, eps);
+    if (!LO.length) throw Error('Forma vacía');
+    const holes = LO.slice(1).filter(l => Math.sign(l.signed) !== Math.sign(LO[0].signed) && l.area > 1).map(l => l.pts);
+    const innerPts = rimE ? G.maskLoops(inner, g.Nw, g.Nh, g.cell, g.x0, g.y0, eps)[0].pts : LO[0].pts;
+    return { outer: LO[0].pts, inner: innerPts, holes, center, fit: Din[bi] * g.cell, rim: rimE };
+  }
+
+  function maskBox(M, g) {
+    let i0 = g.Nw, i1 = -1, j0 = g.Nh, j1 = -1;
+    for (let j = 0; j < g.Nh; j++) for (let i = 0; i < g.Nw; i++) if (M[j * g.Nw + i]) { if (i < i0) i0 = i; if (i > i1) i1 = i; if (j < j0) j0 = j; if (j > j1) j1 = j; }
+    return { w: (i1 - i0 + 1) * g.cell, h: (j1 - j0 + 1) * g.cell };
+  }
+  function buildShapePoly() {
+    const T = tabSpec();
+    const Wt = S.useWH ? S.W : S.size, Ht = S.useWH ? S.H : S.size;
+    // which axis must include the keyring tab (like the round and square shapes)
+    const tabW = !!(T && S.fitTab && S.useWH && S.tabPos === 'side'), tabH = !!(T && S.fitTab && S.useWH && S.tabPos === 'top');
+    const Lw = Math.hypot(Wt, Ht), u = S.tabPos === 'side' ? [1, 0] : S.tabPos === 'corner' ? [Wt / Lw, Ht / Lw] : [0, 1];
+    let W = tabW ? Math.max(10, Wt - T.ext) : Wt, H = tabH ? Math.max(10, Ht - T.ext) : Ht;
+    let g, plate;
+    for (let it = 0; it < 3; it++) {
+      const pad = (T ? T.ext + T.Ls / 2 : 0) + 3, cell = Math.max(0.1, Math.max(W, H) / 500);
+      g = newGrid(-W / 2 - pad, W / 2 + pad, -H / 2 - pad, H / 2 + pad, cell);
+      plate = fillPolys(g, unitShape(S.shape).map(o => o.map(([x, y]) => [x * W / 2, y * H / 2])));
+      const r = Math.min(S.corner || 0, Math.min(W, H) / 5);
+      if (r > 0.15) plate = dilateM(erodeM(plate, r, g), r, g);
+      if (it === 2) break;
+      // rounding trims points and the tab may sit in a notch: correct the size so the total matches what was asked
+      const pb = maskBox(plate, g), ob = (tabW || tabH) ? maskBox(addTab(g, plate, [0, 0], u, T), g) : pb;
+      const dw = Wt - (tabW ? ob.w : pb.w), dh = Ht - (tabH ? ob.h : pb.h);
+      if (Math.abs(dw) < 0.15 && Math.abs(dh) < 0.15) break;
+      W = Math.max(8, W + dw); H = Math.max(8, H + dh);
+    }
+    return finishPoly(g, plate, [0, 0], u, S.rim);
+  }
+
+  const mctx = document.createElement('canvas').getContext('2d');
+  function buildNamePoly() {
+    const name = (S.nameText || '').trim() || 'Nombre';
+    mctx.font = fontCSS(S.font, 100);
+    const m = mctx.measureText(name);
+    const asc = m.actualBoundingBoxAscent, des = m.actualBoundingBoxDescent, bl = m.actualBoundingBoxLeft, br = m.actualBoundingBoxRight;
+    const k = S.textH / Math.max(1, asc + des), A = asc * k, Dd = des * k, inkW = (bl + br) * k;
+    const chipOn = !!S.chip, rimE = S.rim >= 0.4 ? S.rim : 0;
+    const Rm = chipOn ? ((S.chipD || 25) + 0.5) / 2 + 1.8 + rimE : 0;
+    const mg = Math.max(S.margin, rimE + 0.9 + S.bold / 2);
+    const xa = chipOn ? Rm - mg * 0.4 : 0, xb = xa + inkW, baseY = (Dd - A) / 2;
+    const T = tabSpec(), hh = Math.max(A + Dd, 2 * Rm) / 2 + mg;
+    const left = (chipOn ? -Math.max(Rm, hh) : xa - mg) - (T ? T.ext : 0) - 3;
+    const cell = Math.max(0.1, (xb + mg + 3 - left) / 1400);
+    const yr = hh + 3 + (T ? T.Ls / 2 + T.rt : 0);
+    const g = newGrid(left, xb + mg + 3, -yr, yr, cell);
+    const gv = Object.assign({}, g, { x0: -(g.x0 + g.Nw * cell) });
+    gv.px = x => (x - gv.x0) / cell;
+    const drawName = (gg, xLeft) => {
+      const c = canvasFor(gg);
+      c.font = fontCSS(S.font, 100 * k / cell); c.textBaseline = 'alphabetic'; c.textAlign = 'left';
+      c.fillText(name, gg.px(xLeft) + bl * k / cell, gg.py(baseY));
+      return readMask(gg);
+    };
+    const flip = M => { const o = new Uint8Array(M.length); for (let j = 0; j < g.Nh; j++) for (let i = 0; i < g.Nw; i++) o[j * g.Nw + i] = M[j * g.Nw + g.Nw - 1 - i]; return o; };
+    const or = (a, z) => { const o = new Uint8Array(a); for (let i = 0; i < o.length; i++) if (z[i]) o[i] = 1; return o; };
+    let Tf = drawName(g, xa);
+    if (S.bold > 0) Tf = dilateM(Tf, S.bold / 2, g);
+    let Bv = null;
+    if (S.nameBack === 'name' || S.nameBack === 'both') { Bv = drawName(gv, -xb); if (S.bold > 0) Bv = dilateM(Bv, S.bold / 2, gv); }
+    let plate;
+    if (S.nameLayout === 'plate') {
+      const c1 = chipOn ? 0 : xa - mg + hh, c2 = Math.max(c1, xb + mg - hh);
+      plate = new Uint8Array(g.Nw * g.Nh);
+      eachPixel(g, (i, x, y) => { const dx = x < c1 ? x - c1 : x > c2 ? x - c2 : 0; if (dx * dx + y * y <= hh * hh) plate[i] = 1; });
+    } else {
+      plate = dilateM(Bv ? or(Tf, flip(Bv)) : Tf, mg, g);
+      const barH = Math.max(1.6, S.textH * 0.3), bx1 = xb - Math.min(2, inkW * 0.15);
+      eachPixel(g, (i, x, y) => {
+        if (chipOn && x * x + y * y <= Rm * Rm) plate[i] = 1;
+        if (x >= (chipOn ? 0 : xa) && x <= bx1 && Math.abs(y) <= barH / 2) plate[i] = 1;
+      });
+      plate = fillHoles(plate, g);
+    }
+    const P0 = chipOn ? [0, 0] : [xa + Math.min(3, inkW / 3), 0];
+    const poly = finishPoly(g, plate, P0, [-1, 0], rimE);
+    if (chipOn) { poly.center = [0, 0]; poly.fit = Rm - rimE; }
+    const iconMask = gg => {
+      const k2 = S.nameIconKind;
+      let cfg = null;
+      if (['nfc', 'wifi', 'star', 'heart'].includes(k2)) cfg = { mode: 'icon', icon: k2 };
+      else if (k2 === 'initial') cfg = { mode: 'text', text: name.charAt(0).toUpperCase() };
+      else if (k2 === 'image' && S.front.img) cfg = { mode: 'image', img: S.front.img, thr: S.iconThr, inv: S.iconInv };
+      if (!cfg || !drawArt(cfg, 600, 600)) return null;
+      const side = 2 * (Rm - rimE - 1.1) * 0.78 * S.iconScale / 100 / cell;
+      const c = canvasFor(gg);
+      c.imageSmoothingEnabled = true; c.imageSmoothingQuality = 'high';
+      c.drawImage(hi, gg.px(0) - side / 2, gg.py(0) - side / 2, side, side);
+      return readMask(gg);
+    };
+    let front = Tf;
+    const fi = chipOn ? iconMask(g) : null;
+    if (fi) front = or(front, fi);
+    let back = null;
+    if (S.nameBack === 'name' || S.nameBack === 'both') back = Bv;
+    if ((S.nameBack === 'icon' || S.nameBack === 'both') && chipOn) { const bi = iconMask(gv); if (bi) back = back ? or(back, bi) : bi; }
+    const grid = (raw, x0) => ({ raw, Nw: g.Nw, Nh: g.Nh, cell, x0, y0: g.y0 });
+    return { poly, grids: { front: grid(front, g.x0), back: back ? grid(back, gv.x0) : null } };
+  }
+
+  // ---------- keychain phone stand: two side plates + one crossbar, printed flat, slotted together
+  const ghostMat = new THREE.MeshStandardMaterial({ color: 0x24272d, roughness: 0.35, metalness: 0.1, transparent: true, opacity: 0.35, depthWrite: false });
+  function standDims() {
+    const t = S.thick, rh = S.holeD / 2;
+    return { sw: t + 0.35, pt: S.phoneT, a: S.angle * Math.PI / 180, rh, rt: rh + S.tabWall, Hs: 24, hb: S.standType === 't' ? 14 : 12, Bw: S.standW };
+  }
+  const ringPts = (cx, cy, r) => { const o = []; for (let i = 0; i < 40; i++) { const q = i / 40 * Math.PI * 2; o.push([cx + r * Math.cos(q), cy + r * Math.sin(q)]); } return o; };
+  // side plate (y up): front lip (or a block with a slot for the front bar), phone notch, leaning back support,
+  // flat top for the logo, keyring ear at the back and an optional slot from below for a crossbar
+  function profileShape(K, frontSlot, backSlot) {
+    const { sw, pt, a, rt, rh, Hs, hb } = K;
+    const Fw = frontSlot ? sw + 4 : 3, lipH = frontSlot ? hb : 9;
+    const P1 = [Fw + pt, 4], len = (Hs - 4) / Math.sin(a), P2 = [P1[0] + Math.cos(a) * len, Hs], P3 = [P2[0] + 4, Hs];
+    const L = Math.max(P3[0] + 22, 44), xc = P3[0] - 2;
+    const pts = [[0, 0], [0, lipH], [Fw, lipH], [Fw, 4], P1, P2, P3, [L - 7, Hs], [L, Hs - 7], [L, 2 * rt]];
+    for (let i = 1; i < 24; i++) { const q = Math.PI / 2 - i / 24 * Math.PI; pts.push([L + rt * Math.cos(q), rt + rt * Math.sin(q)]); }
+    pts.push([L, 0]);
+    if (backSlot) pts.push([xc + sw / 2, 0], [xc + sw / 2, hb / 2], [xc - sw / 2, hb / 2], [xc - sw / 2, 0]);
+    if (frontSlot) pts.push([Fw / 2 + sw / 2, 0], [Fw / 2 + sw / 2, hb / 2], [Fw / 2 - sw / 2, hb / 2], [Fw / 2 - sw / 2, 0]);
+    return { pts, hole: ringPts(L, rt, rh), L, xc, P1, xf: Fw / 2, ear: [L, rt], len: L + rt };
+  }
+  // bar standing on its edge (centred): slots from above at the given x, keyring ear on the right end
+  function barShape(K, slots) {
+    const { sw, rt, rh, hb, Bw } = K, ec = -hb / 2 + rt;
+    const pts = [[-Bw / 2, -hb / 2], [Bw / 2, -hb / 2]];
+    for (let i = 1; i < 24; i++) { const q = -Math.PI / 2 + i / 24 * Math.PI; pts.push([Bw / 2 + rt * Math.cos(q), ec + rt * Math.sin(q)]); }
+    pts.push([Bw / 2, ec + rt], [Bw / 2, hb / 2]);
+    slots.slice().sort((p, q) => q - p).forEach(x => pts.push([x + sw / 2, hb / 2], [x + sw / 2, 0], [x - sw / 2, 0], [x - sw / 2, hb / 2]));
+    pts.push([-Bw / 2, hb / 2]);
+    return { pts, hole: ringPts(Bw / 2, ec, rh) };
+  }
+  function bestCenter(outline, hole) {
+    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+    outline.forEach(([x, y]) => { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); });
+    const g = newGrid(x0 - 1, x1 + 1, y0 - 1, y1 + 1, 0.25);
+    const M = fillPolys(g, [outline]), Hm = fillPolys(g, [hole]);
+    for (let i = 0; i < M.length; i++) if (Hm[i]) M[i] = 0;
+    const D = edt(notM(M), g.Nw, g.Nh);
+    let bi = 0;
+    for (let i = 1; i < D.length; i++) if (D[i] > D[bi]) bi = i;
+    return [g.x0 + (bi % g.Nw + 0.5) * g.cell, g.y0 - (((bi / g.Nw) | 0) + 0.5) * g.cell];
+  }
+  function mergeGeos(list) {
+    list = list.filter(Boolean);
+    if (!list.length) return null;
+    const arrs = list.map(g => (g.index ? g.toNonIndexed() : g).attributes.position.array);
+    const out = new Float32Array(arrs.reduce((s, a) => s + a.length, 0));
+    let o = 0; arrs.forEach(a => { out.set(a, o); o += a.length; });
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(out, 3)); g.computeVertexNormals();
+    return g;
+  }
+  function buildKeyStand() {
+    const K = standDims(), type = S.standType || 'v';
+    const backCfg = S.same ? S.front : S.back;
+    const has = c => c && c.mode !== 'none';
+    const piece = (sh, front, back) => {
+      const poly = { outer: sh.pts, inner: sh.pts, holes: [sh.hole], center: bestCenter(sh.pts, sh.hole), fit: 0, rim: 0 };
+      const SS = Object.assign({}, S, { _poly: poly, chip: false, magnet: false, solidCore: false });
+      const d = G.computeDims(SS);
+      return { d, P: G.buildParts(SS, { front: has(front) ? faceGrid(front, d, false) : null, back: has(back) ? faceGrid(back, d, true) : null }) };
+    };
+    const tf = (g, fn) => { if (!g) return null; const c = g.clone(); fn(c); return c; };
+    const lay = (pc, fn) => ({ body: pc.P.body.map(g => tf(g, fn)), lf: tf(pc.P.logoFront, fn), lb: tf(pc.P.logoBack, fn) });
+    const join = (list, extra) => ({
+      body: [].concat(...list.map(x => x.body)), rim: null, core: null, stand: null, chip: null, magnet: null,
+      logoFront: mergeGeos(list.map(x => x.lf)), logoBack: mergeGeos(list.map(x => x.lb)), extra
+    });
+    const phoneAt = (zb, w) => {
+      const g = new THREE.BoxGeometry(w, 55, K.pt - 1);
+      g.translate(0, 27.5, (K.pt - 1) / 2); g.rotateX(-(Math.PI / 2 - K.a)); g.translate(0, 4, zb);
+      return [{ geo: g, mat: ghostMat }];
+    };
+    let print, view, dims, first;
+    if (type === 'v') {
+      // two plates joined by the key ring through their ears; they open into a V
+      const pr = profileShape(K, false, false);
+      const A = piece(pr, S.front, backCfg), B = piece(pr, backCfg, S.front);
+      first = A;
+      print = join([lay(A, g => g.translate(-pr.len - 3, 0, 0)), lay(B, g => g.translate(3, 0, 0))]);
+      const beta = 22 * Math.PI / 180, off = S.thick / 2 + 0.3;
+      const hinge = (sgn) => g => { g.translate(-pr.ear[0], 0, sgn * off); g.rotateY(Math.PI / 2 + sgn * beta); };
+      const spread = 2 * (pr.ear[0] - pr.P1[0]) * Math.sin(beta);
+      view = join([lay(A, hinge(1)), lay(B, hinge(-1))], phoneAt((pr.ear[0] - pr.P1[0]) * Math.cos(beta), Math.max(70, spread + 20)));
+      dims = `2 piezas de ${Math.round(pr.len)} × ${K.Hs} mm`;
+    } else if (type === 't') {
+      // one side plate + a front bar that crosses it through a slot
+      const pr = profileShape(K, true, false), br = barShape(K, [0]);
+      const A = piece(pr, backCfg, backCfg), C = piece(br, S.front, null);
+      first = A;
+      print = join([lay(A, g => g.translate(-pr.len / 2, 0, 0)), lay(C, g => g.translate(0, K.Hs + 5 + K.hb / 2, 0))]);
+      view = join([
+        lay(A, g => { g.rotateY(Math.PI / 2); g.translate(0, 0, pr.xf); }),
+        lay(C, g => g.translate(0, K.hb / 2, 0))
+      ], phoneAt(pr.xf - pr.P1[0], Math.max(70, K.Bw + 10)));
+      dims = `Armado: ${Math.round(K.Bw + K.rt)} × ${Math.round(pr.len)} × ${K.Hs} mm`;
+    } else {
+      // two side plates + a crossbar
+      const pr = profileShape(K, false, true), xs = K.Bw / 2 - 7, br = barShape(K, [xs, -xs]);
+      const A = piece(pr, S.front, backCfg), B = piece(pr, backCfg, S.front), C = piece(br, null, null);
+      first = A;
+      print = join([lay(A, g => g.translate(-pr.len - 3, 0, 0)), lay(B, g => g.translate(3, 0, 0)), lay(C, g => g.translate(0, K.Hs + 5 + K.hb / 2, 0))]);
+      view = join([
+        lay(A, g => { g.rotateY(Math.PI / 2); g.translate(xs, 0, pr.xc); }),
+        lay(B, g => { g.rotateY(Math.PI / 2); g.translate(-xs, 0, pr.xc); }),
+        lay(C, g => g.translate(0, K.hb / 2, 0))
+      ], phoneAt(pr.xc - pr.P1[0], Math.max(70, K.Bw + 16)));
+      dims = `Armado: ${Math.round(K.Bw + K.rt)} × ${Math.round(pr.len)} × ${K.Hs} mm`;
+    }
+    Object.assign(print, { d: first.d, chipRange: first.P.chipRange, raised: first.P.raised, backRaised: false, size: { x: 0, y: 0 } });
+    return { print, view, dims };
+  }
+
   // ---------- rebuild
   let timer = 0;
   function rebuild() {
     clearTimeout(timer);
     timer = setTimeout(() => {
-      const d = G.computeDims(S);
+      ensureFont(S.font);
+      polyData = null; nameGrids = null;
+      if (P.keystand) {
+        try {
+          const r = buildKeyStand();
+          parts = r.print;
+          setMeshes(S.standView === 'print' ? r.print : r.view);
+          updateInfo(r.print.d);
+          $('#dims').textContent = r.dims;
+        } catch (err) { console.error(err); setStatus('No se pudo generar el soporte.'); }
+        return;
+      }
+      try {
+        if (P.nameProd) { const r = buildNamePoly(); polyData = r.poly; nameGrids = r.grids; }
+        else if (RASTER.has(S.shape)) polyData = buildShapePoly();
+      } catch (err) { console.error(err); polyData = null; nameGrids = null; }
+      const SS = polyData ? Object.assign({}, S, { _poly: polyData }) : S;
+      const d = G.computeDims(SS);
       const backCfg = P.noBack ? null : (S.same ? S.front : S.back);
       try {
-        parts = G.buildParts(S, { front: faceGrid(S.front, d, false), back: backCfg ? faceGrid(backCfg, d, true) : null });
+        parts = G.buildParts(SS, nameGrids || { front: faceGrid(S.front, d, false), back: backCfg ? faceGrid(backCfg, d, true) : null });
         setMeshes(parts);
       } catch (err) {
         console.error(err);
@@ -1024,13 +1525,16 @@ function makePromoGeometry(THREE) {
       if (S.logoW > maxW) { S.logoW = maxW; wEl.value = maxW; $('#r_logoWO').textContent = mm1(maxW); }
     }
     $('#logoWHint').textContent = `Máximo ${maxW} mm de ancho dentro del borde. El logo se recorta si se sale del área.`;
+    $('#logoWHint').hidden = !!P.nameProd;
     const warn = $('#chipWarn');
     const minSide = Math.min(b.w, b.h);
-    const small = S.chip && Math.min(d.W, d.H) < S.chipD + 3;
+    const small = S.chip && (polyData ? polyData.fit < (S.chipD + 0.5) / 2 + 1.2 : Math.min(d.W, d.H) < S.chipD + 3);
     warn.hidden = !(small || d.tooThin);
     warn.textContent = d.tooThin
       ? `La pieza está muy delgada para un chip de ${S.chipT} mm. Súbele el grosor a ${(d.chip.h + 1.6).toFixed(1)} mm o más.`
-      : `El chip de ${S.chipD} mm casi no cabe dentro del borde. Haz la pieza más grande o el borde más delgado.`;
+      : polyData ? `El chip de ${S.chipD} mm no cabe en esta forma. Hazla más grande o el borde más delgado.` : `El chip de ${S.chipD} mm casi no cabe dentro del borde. Haz la pieza más grande o el borde más delgado.`;
+    const Tp = polyData && tabSpec();
+    if (Tp) $('#tabHint').textContent = `La argolla mide ${(Tp.rt * 2 + Tp.Ls).toFixed(1)} × ${(Tp.rt * 2).toFixed(1)} mm por fuera.`;
     if (d.tab) $('#tabHint').textContent = `La argolla mide ${(d.tab.rt * 2 + d.tab.Ls).toFixed(1)} × ${(d.tab.rt * 2).toFixed(1)} mm por fuera.` + (S.tabShape === 'slot' && d.tab.Ls < S.slotLen ? ` La ranura se limitó a ${d.tab.Ls.toFixed(1)} mm por el tamaño de la pieza.` : '');
     if (P.mount) $('#mountHint').textContent = S.mount === 'stand' ? 'La base se imprime aparte, en el color del borde, y la placa entra a presión en la ranura.' : S.mount === 'hang' ? 'Argolla para colgar con clavo o cordón.' : 'Sin base ni argolla, por ejemplo para pegar con cinta doble cara.';
   }
@@ -1065,12 +1569,17 @@ function makePromoGeometry(THREE) {
     const box = $('#shapeBox'); box.innerHTML = '';
     if (P.shapes.length > 1) {
       const seg = document.createElement('div'); seg.className = 'seg'; seg.id = 'shapeSeg'; seg.setAttribute('role', 'group'); seg.setAttribute('aria-label', 'Forma');
-      seg.innerHTML = S.useWH ? '<button type="button" data-v="circle">Redonda u ovalada</button><button type="button" data-v="square">Rectangular</button>' : '<button type="button" data-v="circle">Circular</button><button type="button" data-v="square">Cuadrada</button>';
+      seg.innerHTML = P.shapes.map(k => `<button type="button" data-v="${k}">${k === 'circle' ? (S.useWH ? 'Redonda u ovalada' : 'Circular') : k === 'square' ? (S.useWH ? 'Rectangular' : 'Cuadrada') : SHAPE_LABELS[k]}</button>`).join('');
       box.appendChild(seg);
     }
     const rows = P.ranges.map(r => makeRange(box, r, r.key === 'angle' ? v => `${v}°` : null));
-    const syncOnly = () => rows.forEach(row => { if (row.dataset.only) row.hidden = row.dataset.only !== S.shape; });
-    if (P.shapes.length > 1) makeSeg('shapeSeg', 'shape', syncOnly);
+    const syncOnly = () => rows.forEach(row => {
+      if (!row.dataset.only) return;
+      const ras = row.dataset.only === 'square' && RASTER.has(S.shape);
+      row.hidden = !(row.dataset.only === S.shape || ras);
+      row.querySelector('label').textContent = ras ? 'Redondeo' : 'Esquinas';
+    });
+    if (P.shapes.length > 1) makeSeg('shapeSeg', 'shape', () => { if (RASTER.has(S.shape) && S.corner > 3) S.corner = 1.5; renderShapeBox(); });
     syncOnly();
     if (S.useWH) {
       const l = document.createElement('label'); l.className = 'check';
@@ -1090,8 +1599,23 @@ function makePromoGeometry(THREE) {
       const ch = document.createElement('p'); ch.className = 'hint';
       ch.textContent = 'Pon las medidas de tu chip. El hueco sale 0.5 mm más ancho y con 0.2 mm de holgura de alto.';
       cbox.appendChild(ch);
-      check('chip', 'chip', () => { cbox.hidden = !S.chip; });
+      check('chip', 'chip', () => { cbox.hidden = !S.chip; if (P.nameProd) renderName(); });
       cbox.hidden = !S.chip;
+    }
+    if (P.keystand) {
+      const seg = document.createElement('div'); seg.className = 'seg'; seg.id = 'standViewSeg'; seg.setAttribute('role', 'group'); seg.setAttribute('aria-label', 'Vista');
+      seg.innerHTML = '<button type="button" data-v="assembled">Armado</button><button type="button" data-v="print">Para imprimir</button>';
+      const h = document.createElement('h3'); h.textContent = 'Vista';
+      const seg2 = document.createElement('div'); seg2.className = 'seg'; seg2.id = 'standTypeSeg'; seg2.setAttribute('role', 'group'); seg2.setAttribute('aria-label', 'Modelo');
+      seg2.innerHTML = '<button type="button" data-v="v">V con argolla</button><button type="button" data-v="t">T (2 piezas)</button><button type="button" data-v="h">3 piezas</button>';
+      const h2 = document.createElement('h3'); h2.textContent = 'Modelo';
+      box.prepend(h2, seg2, h, seg);
+      makeSeg('standViewSeg', 'standView');
+      makeSeg('standTypeSeg', 'standType', () => { renderShapeBox(); renderLogos(); });
+      rows.forEach(r => { if (r.querySelector('#r_standW')) r.hidden = S.standType === 'v'; });
+      const p = document.createElement('p'); p.className = 'hint';
+      p.textContent = 'Mide el grosor de tu cel con funda y súmale 1 mm. Las ranuras ya llevan 0.35 mm de holgura para que encajen sin forzar.';
+      box.appendChild(p);
     }
     if (P.ruler) {
       const l = document.createElement('label'); l.className = 'check';
@@ -1114,6 +1638,7 @@ function makePromoGeometry(THREE) {
     } else check('tab', 'tab', syncTab);
     syncTab();
     makeSeg('tabPosSeg', 'tabPos');
+    $('#tabPosSeg').hidden = $('#tabPosSeg').previousElementSibling.hidden = !!P.nameProd;
     makeSeg('tabShapeSeg', 'tabShape', () => { slotRow.hidden = S.tabShape !== 'slot'; });
     const box = $('#tabRanges'); box.innerHTML = '';
     makeRange(box, R('holeD', 'Hoyo', 2.5, 8, 0.1));
@@ -1166,17 +1691,20 @@ function makePromoGeometry(THREE) {
     buildSide($('#sideFront .sidebody'), S.front);
     buildSide($('#sideBack .sidebody'), S.back);
     const stand = S.shape === 'stand';
-    $('#frontLabel').textContent = stand ? 'Costado derecho' : 'Frente';
-    $('#backLabel').textContent = stand ? 'Costado izquierdo' : 'Reverso';
-    $('#backWrap').hidden = !!P.noBack;
+    const kt = S.standType === 't';
+    $('#frontLabel').textContent = P.keystand ? (kt ? 'Barra del frente' : 'Lados de afuera') : stand ? 'Costado derecho' : 'Frente';
+    $('#backLabel').textContent = P.keystand ? (kt ? 'Costados del lateral' : 'Lados de adentro') : stand ? 'Costado izquierdo' : 'Reverso';
+    $('#backWrap').hidden = !!P.noBack || !!P.nameProd;
+    $('#sideFront').hidden = !!P.nameProd;
     check('same', 'same', () => { $('#sideBack').hidden = S.same; });
     $('#sideBack').hidden = S.same;
     const box = $('#logoRanges'); box.innerHTML = '';
-    makeRange(box, R('logoW', 'Ancho del logo', 6, 200, 0.5));
+    const hideForName = [makeRange(box, R('logoW', 'Ancho del logo', 6, 200, 0.5))];
     makeRange(box, R('bold', 'Engrosar trazo', 0, 1.6, 0.1));
     const bh = document.createElement('p'); bh.className = 'hint'; bh.textContent = 'Si tu logo tiene líneas delgadas, súbele aquí. Con boquilla de 0.4 cada línea debe medir al menos 1 mm.'; box.appendChild(bh);
-    makeRange(box, R('offX', 'Mover ← →', -50, 50, 1), v => `${v}%`);
-    makeRange(box, R('offY', 'Mover ↓ ↑', -50, 50, 1), v => `${v}%`);
+    hideForName.push(makeRange(box, R('offX', 'Mover ← →', -50, 50, 1), v => `${v}%`));
+    hideForName.push(makeRange(box, R('offY', 'Mover ↓ ↑', -50, 50, 1), v => `${v}%`));
+    hideForName.forEach(r => { r.hidden = !!P.nameProd; });
     const sbox = $('#styleRanges'); sbox.innerHTML = '';
     const hRow = makeRange(sbox, R('raise', 'Altura', 0.4, 3, 0.2));
     const rRow = makeRange(sbox, R('relief', 'Profundidad', 0.2, 1, 0.2));
@@ -1193,6 +1721,54 @@ function makePromoGeometry(THREE) {
     syncStyle();
   }
 
+  function renderName() {
+    const on = !!P.nameProd;
+    $('#nameSection').hidden = !on;
+    (on ? $('#nameFontSlot') : $('#logoFontSlot')).appendChild($('#fontBox'));
+    if (!on) return;
+    const inp = $('#nameText');
+    inp.value = S.nameText;
+    inp.oninput = () => { S.nameText = inp.value; rebuild(); };
+    makeSeg('nameLayoutSeg', 'nameLayout');
+    makeSeg('nameBackSeg', 'nameBack');
+    const syncIcon = () => {
+      $('#nameIconBox').hidden = !S.chip; $('#nameIconOff').hidden = !!S.chip;
+      $('#nameIconImg').hidden = S.nameIconKind !== 'image';
+      thrRow.hidden = S.nameIconKind !== 'image';
+      scaleRow.hidden = S.nameIconKind === 'none';
+    };
+    makeSeg('nameIconSeg', 'nameIconKind', syncIcon);
+    check('iconInv', 'iconInv');
+    const ib = $('#nameIconRanges'); ib.innerHTML = '';
+    const scaleRow = makeRange(ib, R('iconScale', 'Tamaño del ícono', 40, 130, 5), v => `${v}%`);
+    const thrRow = makeRange(ib, R('iconThr', 'Sensibilidad', 40, 250, 1), v => `${v}`);
+    const file = $('#nameIconFile');
+    file.value = '';
+    file.onchange = () => {
+      const f = file.files && file.files[0];
+      if (!f) return;
+      const reader = new FileReader();
+      reader.onload = () => { const img = new Image(); img.onload = () => { S.front.img = img; S.nameIconKind = 'image'; makeSeg('nameIconSeg', 'nameIconKind', syncIcon); syncIcon(); rebuild(); }; img.onerror = () => setStatus('No se pudo leer esa imagen. Usa PNG, SVG o JPG.'); img.src = reader.result; };
+      reader.readAsDataURL(f);
+    };
+    syncIcon();
+    const box = $('#nameRanges'); box.innerHTML = '';
+    makeRange(box, R('textH', 'Altura de las letras', 6, 25, 0.5));
+    makeRange(box, R('margin', 'Contorno alrededor', 1.2, 5, 0.1));
+  }
+  function renderFonts() {
+    const box = $('#fontGrid'); box.innerHTML = '';
+    FONTS.forEach(([f]) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.textContent = f; b.dataset.f = f;
+      b.style.setProperty('font-family', `"${f}", sans-serif`, 'important');
+      b.style.setProperty('font-weight', String(fontW(f)), 'important');
+      b.addEventListener('click', () => { S.font = f; syncFonts(); ensureFont(f); rebuild(); });
+      box.appendChild(b);
+    });
+  }
+  function syncFonts() { $$('#fontGrid button').forEach(b => b.setAttribute('aria-pressed', b.dataset.f === S.font)); }
+
   function selectProduct(p) {
     if(S.front)drafts[P.id]=snapshotState();
     P = p;
@@ -1206,10 +1782,10 @@ function makePromoGeometry(THREE) {
     $$('#products button').forEach(b => b.setAttribute('aria-pressed', b.dataset.p === p.id));
     $('#productHint').textContent = p.note;
     const stand = S.shape === 'stand';
-    $('#rimColorRow').hidden = stand; $('#coreBox').hidden = stand;
+    $('#rimColorRow').hidden = stand || !!P.keystand; $('#coreBox').hidden = stand || !!P.keystand;
     check('solidCore', 'solidCore');
     $('#rimColorLabel').textContent = p.mount ? 'Borde, argolla y base' : 'Borde y argolla';
-    renderShapeBox(); renderTab(); renderMagnet(); renderLogos();
+    renderShapeBox(); renderTab(); renderMagnet(); renderLogos(); renderName(); syncFonts();
     tx = 0.28; ty = stand ? -0.75 : -0.55;
     rebuild();
   }
@@ -1264,7 +1840,7 @@ function makePromoGeometry(THREE) {
   function readme() {
     const d = parts.d, cr = parts.chipRange;
     const sz = parts.size, tot = `${(Math.round(sz.x * 10) / 10)} × ${(Math.round(sz.y * 10) / 10)} mm en total`;
-    const medidas = S.useWH ? `${S.shape === 'circle' ? 'redonda/ovalada' : 'rectangular'}, ${tot}` : S.shape === 'circle' ? `circular, ${S.size} mm de diámetro` : S.shape === 'stand' ? `perfil de ${Math.round(d.W)} × ${Math.round(d.H)} mm, ${S.thick} mm de ancho, inclinación ${S.angle}°` : `${mm1(d.W)} × ${mm1(d.H)}, esquinas de ${mm1(d.rc)}`;
+    const medidas = P.keystand ? `soporte ${({ v: 'en V con argolla (2 piezas)', t: 'en T (2 piezas)', h: 'de 3 piezas' })[S.standType || 'v']} para cel de hasta ${S.phoneT} mm, inclinación ${S.angle}°` : P.nameProd ? `nombre "${(S.nameText || '').trim()}" en ${S.font}, ${S.nameLayout === 'plate' ? 'placa' : 'silueta'}, ${tot}` : polyData ? `${SHAPE_LABELS[S.shape].toLowerCase()}, ${tot}` : S.useWH ? `${S.shape === 'circle' ? 'redonda/ovalada' : 'rectangular'}, ${tot}` : S.shape === 'circle' ? `circular, ${S.size} mm de diámetro` : S.shape === 'stand' ? `perfil de ${Math.round(d.W)} × ${Math.round(d.H)} mm, ${S.thick} mm de ancho, inclinación ${S.angle}°` : `${mm1(d.W)} × ${mm1(d.H)}, esquinas de ${mm1(d.rc)}`;
     const L = [
       P.name.toUpperCase(), '',
       `Medidas: ${medidas}`,
@@ -1287,6 +1863,21 @@ function makePromoGeometry(THREE) {
     }
     if (parts.magnet) steps.push(`hueco_iman.stl: cámbialo a Parte negativa. Deja un hueco abierto por atrás de ${(S.magD + 0.3).toFixed(1)} × ${(S.magH + 0.2).toFixed(1)} mm; pega el imán de ${S.magD} × ${S.magH} mm con una gota de pegamento.`);
     if (parts.stand) steps.push(`base.stl se imprime aparte, acostada como sale, en el color del borde. La ranura tiene 0.5 mm de holgura para que la placa entre a presión.`);
+    if (P.keystand) {
+      const ty = S.standType || 'v';
+      steps.push('cuerpo.stl trae todas las piezas acostadas. Imprímelas planas, sin soportes.');
+      if (ty === 'v') {
+        steps.push('Pasa la argolla por el hoyo de las 2 piezas: la argolla es la bisagra.');
+        steps.push('Para usarlo: para las 2 piezas de canto y ábrelas en V (unos 40°), con las muescas hacia el frente. El cel se apoya en las dos muescas.');
+      } else if (ty === 't') {
+        steps.push('Para armar: mete la ranura de la barra (abierta hacia arriba) en la ranura del frente del lateral (abierta hacia abajo). La barra queda al frente y detiene el cel.');
+        steps.push('Para llevarlo: desármalo y pasa la argolla por los 2 hoyos.');
+      } else {
+        steps.push('Para armar: mete las ranuras del travesaño (abiertas hacia arriba) en las ranuras de los laterales (abiertas hacia abajo), con las muescas del cel hacia el frente.');
+        steps.push('Para llevarlo: desármalo y pasa la argolla por los 3 hoyos.');
+      }
+      steps.push('Si las ranuras quedan muy justas, sube 0.1 mm la compensación X-Y o lija un poco; si quedan flojas, baja el grosor de las piezas 0.2 mm.');
+    }
     if (S.ruler && P.ruler) steps.push(`Las marcas de la regla empiezan en 0 a ${(d.w + 1).toFixed(1)} mm de la orilla. Revísalas contra una regla antes de vender.`);
     steps.forEach((s, i) => L.push(`${i + 1}. ${s}`));
     return L.join('\n');
@@ -1321,6 +1912,7 @@ function makePromoGeometry(THREE) {
   applyColors();
   window.sereneProject={save:persist,export:()=>{persist();return {product:P.id,drafts,colors}},import:data=>{if(!data||!data.drafts||!PRODUCTS.some(p=>p.id===data.product))throw Error('Proyecto no válido');for(const k of Object.keys(drafts))delete drafts[k];Object.assign(drafts,data.drafts);Object.assign(colors,data.colors||{});S={};selectProduct(PRODUCTS.find(p=>p.id===data.product));$$('.colorrow').forEach(row=>{const k=row.dataset.key;row.querySelector('.lab span').textContent=colors[k].toUpperCase();row.querySelectorAll('.sw').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c.toLowerCase()===colors[k].toLowerCase()));row.querySelector('input[type=color]').value=colors[k];});applyColors();persist();}};
   let saveTimer;document.addEventListener('input',()=>{clearTimeout(saveTimer);saveTimer=setTimeout(persist,450)});document.addEventListener('change',()=>{clearTimeout(saveTimer);saveTimer=setTimeout(persist,450)});document.addEventListener('click',()=>{clearTimeout(saveTimer);saveTimer=setTimeout(persist,450)});
+  renderFonts();
   const start = () => { selectProduct(PRODUCTS.find(p=>p.id===saved.product)||PRODUCTS[0]); requestAnimationFrame(frame); };
   if (document.fonts && document.fonts.load) {
     Promise.race([document.fonts.load(`800 100px "Bricolage Grotesque"`), new Promise(r => setTimeout(r, 1500))]).then(start, start);
