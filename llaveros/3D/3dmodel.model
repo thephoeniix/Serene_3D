@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model unit="millimeter" xml:lang="en-US" xmlns="http://schemas.microsoft.com/3dmanufacturing/core/2015/02" xmlns:BambuStudio="http://schemas.bambulab.com/package/2021" xmlns:p="http://schemas.microsoft.com/3dmanufacturing/production/2015/06" requiredextensions="p">
+ <metadata name="Application">BambuStudio-02.08.02.61</metadata>
+ <metadata name="BambuStudio:3mfVersion">1</metadata>
+ <metadata name="Copyright"></metadata>
+ <metadata name="CreationDate">2026-10-11</metadata>
+ <metadata name="Description"></metadata>
+ <metadata name="Designer"></metadata>
+ <metadata name="DesignerCover"></metadata>
+ <metadata name="DesignerUserId">1722972704</metadata>
+ <metadata name="License"></metadata>
+ <metadata name="ModificationDate">2026-10-11</metadata>
+ <metadata name="Origin"></metadata>
+ <metadata name="ProfileCover"></metadata>
+ <metadata name="ProfileDescription"></metadata>
+ <metadata name="ProfileTitle"></metadata>
+ <metadata name="Title"></metadata>
+ <resources>
+  <object id="7" p:UUID="00000003-61cb-4c03-9d28-80fed5dfa1dc" type="model">
+   <components>
+    <component p:path="/3D/Objects/object_3.model" objectid="1" p:UUID="00030000-b206-40ff-9872-83e8017abed1" transform="1 0 0 0 1 0 0 0 1 0 0 0"/>
+    <component p:path="/3D/Objects/object_3.model" objectid="2" p:UUID="00030001-b206-40ff-9872-83e8017abed1" transform="1 0 0 0 1 0 0 0 1 0 -4 0"/>
+    <component p:path="/3D/Objects/object_3.model" objectid="3" p:UUID="00030002-b206-40ff-9872-83e8017abed1" transform="1 0 0 0 1 0 0 0 1 0 -4 0.0500000119"/>
+    <component p:path="/3D/Objects/object_3.model" objectid="4" p:UUID="00030003-b206-40ff-9872-83e8017abed1" transform="1 0 0 0 1 0 0 0 1 0 -4 0"/>
+    <component p:path="/3D/Objects/object_3.model" objectid="5" p:UUID="00030004-b206-40ff-9872-83e8017abed1" transform="1 0 0 0 1 0 0 0 1 0.0506520271 -3.52408361 1.47500002"/>
+    <component p:path="/3D/Objects/object_3.model" objectid="6" p:UUID="00030005-b206-40ff-9872-83e8017abed1" transform="1 0 0 0 1 0 0 0 1 0.024371624 -3.52523184 -1.47500002"/>
+   </components>
+  </object>
+ </resources>
+ <build p:UUID="2c7c17d8-22b5-4d84-8835-1976022ea369">
+  <item objectid="7" p:UUID="00000007-b1ec-4553-aec9-835e5b724bb4" transform="1 0 0 0 1 0 0 0 1 128 128 1.75" printable="1"/>
+ </build>
+</model>

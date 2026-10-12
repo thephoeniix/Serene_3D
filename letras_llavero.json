@@ -1,0 +1,179 @@
+{
+  "app": "cotizador-3d.html",
+  "version": 1,
+  "project": [
+    {
+      "id": "gModel",
+      "name": "",
+      "value": "4.2",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "gPurge",
+      "name": "",
+      "value": "1.4",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "kgPrice",
+      "name": "",
+      "value": "460",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "failPct",
+      "name": "",
+      "value": "2",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "hrs",
+      "name": "",
+      "value": "",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "mins",
+      "name": "",
+      "value": "26",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "watts",
+      "name": "",
+      "value": "120",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "kwh",
+      "name": "",
+      "value": "2.8",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "machCost",
+      "name": "",
+      "value": "18000",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "machLife",
+      "name": "",
+      "value": "5000",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "setupMin",
+      "name": "",
+      "value": "2",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "postMin",
+      "name": "",
+      "value": "5",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "rate",
+      "name": "",
+      "value": "120",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "perPlate",
+      "name": "",
+      "value": "1",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "qty",
+      "name": "",
+      "value": "1",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "exn0",
+      "name": "",
+      "value": "Argolla",
+      "checked": false,
+      "type": "text"
+    },
+    {
+      "id": "exc0",
+      "name": "",
+      "value": "3",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "exq0",
+      "name": "",
+      "value": "1",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "exn1",
+      "name": "",
+      "value": "NFC",
+      "checked": false,
+      "type": "text"
+    },
+    {
+      "id": "exc1",
+      "name": "",
+      "value": "2.5",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "exq1",
+      "name": "",
+      "value": "1",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "margin",
+      "name": "",
+      "value": "50",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "fee",
+      "name": "",
+      "value": "5",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "iva",
+      "name": "",
+      "value": "16",
+      "type": "select-one"
+    },
+    {
+      "id": "round",
+      "name": "",
+      "value": "5",
+      "type": "select-one"
+    }
+  ]
+}
